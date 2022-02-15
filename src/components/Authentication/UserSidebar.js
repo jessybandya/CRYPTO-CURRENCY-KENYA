@@ -28,7 +28,6 @@ const useStyles = makeStyles({
   logout: {
     height: "8%",
     width: "100%",
-    backgroundColor: "#EEBC1D",
     marginTop: 20,
   },
   picture: {
@@ -41,7 +40,7 @@ const useStyles = makeStyles({
   watchlist: {
     flex: 1,
     width: "100%",
-    backgroundColor: "grey",
+    backgroundColor: "#fff",
     borderRadius: 10,
     padding: 15,
     paddingTop: 10,
@@ -61,7 +60,7 @@ const useStyles = makeStyles({
     fontSize: "0.84rem",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#EEBC1D",
+    backgroundColor: "#3f51b5",
     boxShadow: "0 0 3px black",
   },
 });
@@ -134,7 +133,7 @@ export default function UserSidebar() {
               width: 38,
               marginLeft: 15,
               cursor: "pointer",
-              backgroundColor: "#EEBC1D",
+              backgroundColor: "#fff",
             }}
             src={user.photoURL}
             alt={user.displayName || user.email}
@@ -144,12 +143,17 @@ export default function UserSidebar() {
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
           >
-            <div className={classes.container}>
+            <div className={classes.container}
+            style={{backgroundColor: "#3f51b5"}}
+            >
               <div className={classes.profile}>
                 <Avatar
                   className={classes.picture}
                   src={user.photoURL}
                   alt={user.displayName || user.email}
+                  style={{
+                    backgroundColor: "#fff",
+                  }}
                 />
                 <span
                   style={{
@@ -163,19 +167,21 @@ export default function UserSidebar() {
                   {user.displayName || user.email}
                 </span>
                 <div className={classes.watchlist}>
-                  <span style={{ fontSize: 20, textShadow: "0 0 5px black", fontweight: "bold" , borderBottom: "1px solid"}}>
+                  <span style={{ fontSize: 20, textShadow: "0 0 5px black", fontweight: "bold" , borderBottom: "1px solid",color: "#3f51b5"}}>
                     Watchlist
                   </span>
                   {coins.map((coin) => {
                     if (watchlist.includes(coin.id))
                       return (
                         <div className={classes.coin}>
-                          <span>{coin.name}</span>
+                          <span style={{color: "#fff"}}>{coin.name}</span>
                           <span style={{ display: "flex", gap: 8 }}>
+                            <span style={{color:"#fff"}}>
                             {symbol}{" "}
                             {numberWithCommas(coin.current_price.toFixed(2))}
+                            </span>
                             <AiFillDelete
-                              style={{ cursor: "pointer" }}
+                              style={{ cursor: "pointer",color:"#fff" }}
                               fontSize="16"
                               onClick={() => removeFromWatchlist(coin)}
                             />
@@ -190,6 +196,7 @@ export default function UserSidebar() {
               <Button style={{fontWeight: 'bold'}}
                 variant="contained"
                 className={classes.logout}
+                style={{ color: "#3f51b5" }}
                 onClick={logOut}
               >
                 Log Out

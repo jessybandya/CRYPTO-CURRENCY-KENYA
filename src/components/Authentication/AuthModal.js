@@ -124,7 +124,7 @@ export default function AuthModal() {
               <span>OR</span>
               <GoogleButton
                 style={{ width: "100%", outline: "none" }}
-                // onClick={signInWithGoogle}
+                onClick={signInWithGoogle}
               />
             </Box>
           </div>

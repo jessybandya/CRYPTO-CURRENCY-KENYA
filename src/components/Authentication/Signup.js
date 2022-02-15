@@ -82,7 +82,7 @@ const Signup = (props) => {
         variant="contained"
         size="large"
         style={{ color: "#3f51b5" }}
-        // onClick={handleSubmit}
+        onClick={handleSubmit}
       >
         Sign Up
       </Button>

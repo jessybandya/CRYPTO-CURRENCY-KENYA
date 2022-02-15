@@ -70,7 +70,7 @@ const Login = (props) => {
       <Button
         variant="contained"
         size="large"
-        // onClick={handleSubmit}
+        onClick={handleSubmit}
         style={{ color: "#3f51b5" }}
       >
         Login
