@@ -41,7 +41,6 @@ const Banner = () => {
               fontFamily: "Montserrat",
             }}
           >
-            Crypto World
           </Typography>
           <Typography
             variant="subtitle2"
