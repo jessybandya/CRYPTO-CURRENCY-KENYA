@@ -1,7 +1,7 @@
 import { AppBar, Container, MenuItem, Select, Toolbar, Typography } from "@material-ui/core";
 import { createTheme, makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import React, {useContext,/*  useState  */} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import CryptoContext from "../store/crypto-context";
 import AuthModal from "./Authentication/AuthModal";
 import UserSidebar from "./Authentication/UserSidebar";
@@ -58,7 +58,9 @@ const Header = () => {
 
             */}
             <div className='btn-group'>
+            <Link to="/wallet">
             <button className='btn'>Connect Wallet</button>
+            </Link>
         </div>
             {user ? <UserSidebar /> : <AuthModal />}
           </Toolbar>

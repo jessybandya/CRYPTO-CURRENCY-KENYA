@@ -8,6 +8,7 @@ import { SingleCoin } from "../config/api";
 import CryptoContext from "../store/crypto-context";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import Header from "../components/Header";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -132,11 +133,13 @@ const CoinPage = () => {
 
   const classes = useStyles();
 
-  if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />; //loading to process & avoid error
+  if (!coin) return <LinearProgress style={{ backgroundColor: "#3f51b5" }} />; //loading to process & avoid error
 
   return (
+    <>
+    <Header />
     <div className={classes.container}>
-      <div className={classes.sidebar}>
+      <div className={classes.sidebar} style={{backgroundColor: "#3f51b5",marginTop:65,height:"100%"}}>
         <img
           src={coin?.image.large}
           alt={coin?.name}
@@ -157,7 +160,7 @@ const CoinPage = () => {
             &nbsp; &nbsp;
             <Typography
               variant="h5"
-              style={{ fontFamily: "Montserrat", color: "gold", /* fontWeight: "bold" */ }}
+              style={{ fontFamily: "Montserrat",  /* fontWeight: "bold" */ }}
             >
               {numberWithCommas(coin?.market_cap_rank)}
             </Typography>
@@ -170,7 +173,7 @@ const CoinPage = () => {
             &nbsp; &nbsp;
             <Typography
               variant="h5"
-              style={{ fontFamily: "Montserrat", color: "gold", /* fontWeight: "bold" */}}
+              style={{ fontFamily: "Montserrat",  /* fontWeight: "bold" */}}
             >
               {symbol}{" "}
               {numberWithCommas(
@@ -185,7 +188,7 @@ const CoinPage = () => {
             &nbsp; &nbsp;
             <Typography
               variant="h5"
-              style={{ fontFamily: "Montserrat", color: "gold", /* fontWeight: "bold" */}}
+              style={{ fontFamily: "Montserrat",  /* fontWeight: "bold" */}}
             >
               {symbol}{" "}
               {numberWithCommas(
@@ -213,7 +216,10 @@ const CoinPage = () => {
         </div>
       </div>
       <CoinInfo coin={coin} />
+
     </div>
+    </>
+    
   );
 };
 

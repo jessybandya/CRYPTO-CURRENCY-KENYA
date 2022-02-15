@@ -7,16 +7,19 @@ import { makeStyles } from "@material-ui/core";
 import "./App.css";
 //import Banner from "./components/Banner/Banner";
 import Header from "./components/Header";
+import Wallet from "./components/Wallet";
 //import Banner from "./components/Banner/Banner";
 /* import HomePage from "./Pages/HomePage";
 import CoinPage from "./Pages/CoinPage"; */
 import Alert from "./components/Alert";
 import LoadingSpinner from "./components/Spinner/LoadingSpinner";
+const CoinPage = React.lazy(() => import("./Pages/CoinPage"));
 
 
 const useStyles = makeStyles(() => ({
   App: {
     backgroundColor: "#fff",
+    color: "white",
     minHeight: "100vh",
   },
 }));
@@ -30,6 +33,8 @@ function App() {
     <Router>
     <Routes>
     <Route exact path="/" element={<Home/>}/>
+    <Route exact path="/wallet" element={<Wallet/>}/>
+    <Route path="/coins/:id" element={<CoinPage />} />
     <Route path="*" element={<Nopage/>}/>
   </Routes>
     </Router>

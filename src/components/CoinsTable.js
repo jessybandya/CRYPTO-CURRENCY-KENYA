@@ -24,17 +24,17 @@ import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) =>({
     row: {
-      backgroundColor: "#16171a",
+      backgroundColor: "#3f51b5",
       cursor: "pointer",
       "&:hover": {
-        backgroundColor: "#131111",
+        // backgroundColor: "#8A8A8A",
       },
       fontFamily: "Montserrat",
     },
 
     pagination: {
       "& .MuiPaginationItem-root": {
-        color: "gold",
+        color: "#3f51b5",
       },
     },
 }));
@@ -79,22 +79,25 @@ export default function CoinsTable() {
       <Container style={{ textAlign: "center" }}>
         <Typography
           variant="h4"
-          style={{ margin: 18, fontFamily: "Montserrat", fontWeight: "bold", padding: '1rem', /* color: 'gold' */ }}
+          style={{ margin: 18, fontFamily: "Montserrat", fontWeight: "bold", padding: '0.1rem', color: '#3f51b5' }}
         >
           Cryptocurrency Prices by Market Cap
         </Typography>
+        <div style={{ marginBottom: 20, width: "100%",backgroundColor: "#3f51b5",padding:6,borderRadius:10 }}>
         <TextField
-          label="Search For a Crypto Currency.."
-          variant="outlined"
-          style={{ marginBottom: 20, width: "100%" }}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        label="Search For a Crypto Currency.."
+        variant="outlined"
+        style={{ marginBottom: 0, width: "100%" }}
+        onChange={(e) => setSearch(e.target.value)}
+      />     
+        </div>
+
         <TableContainer component={Paper}>
           {loading ? (
-            <LinearProgress style={{ backgroundColor: "gold" }} />
+            <LinearProgress style={{ backgroundColor: "#3f51b5" }} />
           ) : (
             <Table aria-label="simple table">
-              <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+              <TableHead style={{ backgroundColor: "#fff" }}>
                 <TableRow>
                   {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                     <TableCell
@@ -107,7 +110,7 @@ export default function CoinsTable() {
                       key={head}
                       align={head === "Coin" ? "" : "right"}
                     >
-                      {head}
+                      <span style={{color: "#3f51b5"}}>{head}</span>
                     </TableCell>
                   ))}
                 </TableRow>
